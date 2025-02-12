@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react";
-import { createAppilcation, createJob } from "../api/jobs/jobController";
+import { createJob } from "../api/jobs/jobController";
 interface CreateJobModalProps {
   closeModal: () => void;
   setUpdateJobs: React.Dispatch<React.SetStateAction<boolean>>;

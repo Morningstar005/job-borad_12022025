@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { createAppilcation } from "../api/jobs/jobController";
-
+import { createAppilcation } from "../api/application/applicationController";
 interface ApplyModalProps {
   job: {
     id: number; // Assuming job has an id field
