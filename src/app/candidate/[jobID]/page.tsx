@@ -16,6 +16,7 @@ console.log("hello",jobID)
         description: string;
         category: string | null;
         createdAt: Date;
+        applications: { name: string }[]; // Add applications property
     }
     
     const [job, setJob] = useState<Job | null>(null); // To store the fetched job data
@@ -73,6 +74,24 @@ console.log("hello",jobID)
           >
             Apply Now
           </button>
+          <div className="mt-2 text-[12px] flex gap-2 items-center">
+  <p className="font-semibold">Applied By:</p>
+  <div className="flex flex-wrap gap-2">
+    {job.applications.length === 0 ? (
+      <p className="text-gray-500 italic">
+        You're early! No one has applied yet. Be the first to apply and get shortlisted.
+      </p>
+    ) : (
+      job.applications.map((cand, index) => (
+        <p key={index} className="bg-slate-400 text-white px-4 py-2 rounded-lg shadow-md hover:bg-slate-500 transition-all duration-300">
+          {cand.name}
+        </p>
+      ))
+    )}
+  </div>
+</div>
+
+
     
           {/* Modal */}
           {isModalOpen && (
