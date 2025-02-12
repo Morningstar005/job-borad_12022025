@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Job-App
 
-## Getting Started
+A modern web application designed to manage job applications, candidates, and other related workflows. The structure below provides an overview of the application's directory layout.
 
-First, run the development server:
+## 📂 Folder Structure
 
-```bash
+```plaintext
+JOB-APP/
+├── .next/                # Next.js build output folder (Generated)
+├── node_modules/         # Dependencies installed by npm (Generated)
+├── prisma/               # Database schema and migration files
+├── public/               # Static files for the application
+├── src/                  # Source code of the application
+│   ├── app/
+│   │   ├── api/          # Backend API routes and controllers
+│   │   │   ├── application/
+│   │   │   │   └── applicationController.ts
+│   │   │   ├── jobs/
+│   │   │   │   └── jobController.ts
+│   │   ├── candidate/    # Candidate-specific UI and logic
+│   │   ├── components/   # Reusable components
+│   │   ├── create/       # Pages for creating or managing resources
+│   │       ├── page.tsx  # Entry point for the "Create" page
+│   │       ├── globals.css # Global styles
+│   │       ├── layout.tsx  # Layout for the create pages
+│   │       └── page.tsx    # Component for the main "Create Resource" page
+├── .env                  # Environment variables configuration
+├── .gitignore            # Git ignore file
+├── eslint.config.mjs     # ESLint configuration
+├── next-env.d.ts         # TypeScript declarations for Next.js
+├── next.config.ts        # Next.js configuration
+├── package-lock.json     # Lockfile for npm dependencies
+├── package.json          # Project metadata and dependencies
+├── postcss.config.js     # Configuration for PostCSS
+├── README.md             # Project documentation
+├── tailwind.config.js    # Tailwind CSS configuration
+├── tsconfig.json         # TypeScript configuration
+
+
+🛠️ Key Features
+API Structure (src/app/api/):
+
+applicationController.ts: Handles application-related logic.
+jobController.ts: Manages job-related operations.
+Reusable Components:
+
+All shared components are located in src/app/components/.
+Page Setup:
+
+src/app/create/ contains the structure for creating resources such as layouts and individual create pages.
+Styling:
+
+Global CSS is defined in globals.css.
+TailwindCSS is configured via tailwind.config.js.
+Configuration & Environment:
+
+.env stores environment-specific settings.
+Configurations for ESLint, TypeScript, Next.js, and PostCSS ensure a streamlined development process.
+🚀 Quick Start
+Prerequisites
+Node.js (version 16 or later)
+npm or yarn
+Installation
+Clone the repository:
+
+bash
+
+Copy
+git clone https://github.com/your-username/job-app.git
+cd job-app
+Install dependencies:
+
+bash
+
+Copy
+npm install
+Configure environment variables:
+
+Create a .env file based on .env.example (if available).
+Start the development server:
+
+bash
+
+Copy
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open your browser and visit:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+plaintext
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy
+http://localhost:3000
+📖 Project Description
+Job-App leverages Next.js for server-side rendering and TypeScript for type safety. It follows a modular architecture to separate concerns:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+API routes handle backend logic.
+Frontend pages are organized under the create and candidate directories.
+Reusable components ease scalability.
