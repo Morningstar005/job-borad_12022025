@@ -42,12 +42,12 @@ const Page = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   
-  const openEditModal = (job:any) => {setIsEditModalOpen(true)
+  const openEditModal = (job:Job) => {setIsEditModalOpen(true)
     setEditJob(job)
   };
   const CloseEditModal = () => setIsEditModalOpen(false);
 
-  const deleteJobs = async (id: any) => {
+  const deleteJobs = async (id: number) => {
     await deleteJob(id).then((res) => {
         if (res) {
           // Handle success, maybe update state or notify the user
