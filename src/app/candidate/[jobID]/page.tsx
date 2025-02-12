@@ -79,7 +79,7 @@ console.log("hello",jobID)
   <div className="flex flex-wrap gap-2">
     {job.applications.length === 0 ? (
       <p className="text-gray-500 italic">
-        You're early! No one has applied yet. Be the first to apply and get shortlisted.
+        You are early! No one has applied yet. Be the first to apply and get shortlisted.
       </p>
     ) : (
       job.applications.map((cand, index) => (

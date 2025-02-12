@@ -1,6 +1,5 @@
 // src/app/candidate/page.tsx
 
-import Link from "next/link";
 import { getAllJobs } from "../api/jobs/jobController"; // Import the server-side function
 import CandidateJob from "../components/CandidateJob";
 

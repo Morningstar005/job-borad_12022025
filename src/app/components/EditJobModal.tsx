@@ -1,10 +1,18 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { createJob, editCurrentJob } from "../api/jobs/jobController";
+import { editCurrentJob } from "../api/jobs/jobController";
+interface Job {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+ 
+}
+
 interface EditJobModalProps {
     CloseEditModal: () => void;
     setUpdateJobs: React.Dispatch<React.SetStateAction<boolean>>;
-    editJob: any; // Adjust the type of `editJob` as per your needs
+    editJob: Job; // Adjust the type of `editJob` as per your needs
   }
   const EditJobModal = ({ CloseEditModal, setUpdateJobs, editJob }: EditJobModalProps) => {
     console.log('editJob',editJob)

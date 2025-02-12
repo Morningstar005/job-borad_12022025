@@ -5,13 +5,20 @@ import { useEffect, useState } from "react";
 import CreateJobModal from "../components/createJobModal";
 import { deleteJob, getAllJobs } from "../api/jobs/jobController"; // This won't work directly
 import EditJobModal from "../components/EditJobModal";
+interface Job {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  // other properties...
+}
 
 const Page = () => {
   const [jobs, setJobs] = useState<{ id: number; title: string; description: string; category: string | null; createdAt: Date; }[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-const [editJob,setEditJob] = useState(null)
-const [update,setUpdateJobs] = useState(false)
+  const [editJob, setEditJob] = useState<Job>();
+  const [update,setUpdateJobs] = useState(false)
   const fetchJobs = async () => {
     try {
       const data = await getAllJobs(); // ⛔️ This may cause issues since it's a server function
@@ -101,7 +108,7 @@ const [update,setUpdateJobs] = useState(false)
       </ul>
 
       {isModalOpen && <CreateJobModal closeModal={closeModal} setUpdateJobs={setUpdateJobs}/>}
-      {isEditModalOpen&&<EditJobModal CloseEditModal={CloseEditModal} setUpdateJobs={setUpdateJobs} editJob={editJob} />}
+      {isEditModalOpen && editJob && <EditJobModal CloseEditModal={CloseEditModal} setUpdateJobs={setUpdateJobs} editJob={editJob} />}
     </div>
   );
 };
