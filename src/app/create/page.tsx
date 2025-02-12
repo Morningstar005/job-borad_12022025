@@ -6,7 +6,7 @@ import CreateJobModal from "../components/createJobModal";
 import { deleteJob, getAllJobs } from "../api/jobs/jobController"; // This won't work directly
 import EditJobModal from "../components/EditJobModal";
 interface Job {
-  id: string;
+  id: number;
   title: string;
   description: string;
   category: string;
@@ -17,7 +17,7 @@ const Page = () => {
   const [jobs, setJobs] = useState<{ id: number; title: string; description: string; category: string | null; createdAt: Date; }[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [editJob, setEditJob] = useState<Job>();
+  const [editJob, setEditJob] = useState<Job | null>(null); // editJob can be null initially
   const [update,setUpdateJobs] = useState(false)
   const fetchJobs = async () => {
     try {
