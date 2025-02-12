@@ -12,11 +12,10 @@ const Page = async () => {
         <h1 className="font-bold text-2xl text-gray-700 mt-20 mb-10 md:text-3xl lg:text-4xl">
           Job Listings
         </h1>
-        <ul className="w-full">
-          {jobs.map((job) => (
+        <ul className="w-full h-[500px] overflow-y-auto bg-white p-4 rounded-lg no-scrollbar">
+        {jobs.map((job) => (
             <div
               key={job.id}
-              // className="w-full sm:w-[30rem] mt-4 flex bg-slate-200 p-4 justify-between items-center rounded-lg shadow-md hover:bg-slate-300 transition-colors duration-300 mb-4 "
               className="flex items-center justify-between w-full sm:w-[30rem] m-auto bg-slate-200 p-4 rounded-lg shadow-md hover:bg-slate-100 transition-colors duration-300 mb-4"
             >
               <h1 className="text-lg font-semibold">{job.title}</h1>
