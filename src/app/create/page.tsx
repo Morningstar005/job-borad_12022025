@@ -4,10 +4,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import CreateJobModal from "../components/createJobModal";
 import { deleteJob, getAllJobs } from "../api/jobs/jobController"; // This won't work directly
+import EditJobModal from "../components/EditJobModal";
 
 const Page = () => {
   const [jobs, setJobs] = useState<{ id: number; title: string; description: string; category: string | null; createdAt: Date; }[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+const [editJob,setEditJob] = useState(null)
 const [update,setUpdateJobs] = useState(false)
   const fetchJobs = async () => {
     try {
@@ -31,6 +34,12 @@ const [update,setUpdateJobs] = useState(false)
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  
+  const openEditModal = (job:any) => {setIsEditModalOpen(true)
+    setEditJob(job)
+  };
+  const CloseEditModal = () => setIsEditModalOpen(false);
+
   const deleteJobs = async (id: any) => {
     await deleteJob(id).then((res) => {
         if (res) {
@@ -75,7 +84,10 @@ const [update,setUpdateJobs] = useState(false)
                 View
               </button>
             </Link>
-            <button className="text-slate-900 bg-slate-300 hover:text-slate-200 font-semibold px-4 py-2 rounded-md transition-colors duration-300">
+            <button className="text-slate-900 bg-slate-300 hover:text-slate-200 font-semibold px-4 py-2 rounded-md transition-colors duration-300" onClick={()=>{
+              openEditModal(job)
+            }}
+            >
              Edit
             </button>
             <button className="text-slate-900 bg-slate-300 hover:text-slate-200 font-semibold px-4 py-2 rounded-md transition-colors duration-300"onClick={()=>{
@@ -89,6 +101,7 @@ const [update,setUpdateJobs] = useState(false)
       </ul>
 
       {isModalOpen && <CreateJobModal closeModal={closeModal} setUpdateJobs={setUpdateJobs}/>}
+      {isEditModalOpen&&<EditJobModal CloseEditModal={CloseEditModal} setUpdateJobs={setUpdateJobs} editJob={editJob} />}
     </div>
   );
 };

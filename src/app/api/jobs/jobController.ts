@@ -103,7 +103,7 @@ export async function deleteJob(id: number) {
   }
 }
 
-export async function editJob(id: number, data: {
+export async function editCurrentJob(id: number, data: {
   title?: string;
   description?: string;
   category?: string;
