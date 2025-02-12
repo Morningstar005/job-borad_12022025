@@ -14,7 +14,6 @@ const CreateJobModal = ({closeModal,setUpdateJobs}: CreateJobModalProps) => {
     description: "",
     category: "",
   });
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -29,7 +28,7 @@ const CreateJobModal = ({closeModal,setUpdateJobs}: CreateJobModalProps) => {
     e.preventDefault();
     console.log(formData); 
      try {
-          await createJob(formData).then((res:any) => {
+          await createJob(formData).then((res) => {
             console.log("res", res);
             SetSubmitting(false);
             SetApplicationSubmit(true);
@@ -40,6 +39,7 @@ const CreateJobModal = ({closeModal,setUpdateJobs}: CreateJobModalProps) => {
             }, 1500);
           });
         } catch (error) {
+          console.log('error',error)
           SetSubmitting(false);
         }
   };

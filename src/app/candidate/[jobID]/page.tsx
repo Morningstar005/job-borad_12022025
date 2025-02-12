@@ -1,7 +1,7 @@
 "use client";
 import { getJobById } from '@/app/api/jobs/jobController'; // Ensure the function exists and works correctly
 import ApplyModal from '@/app/components/modal';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 // import { useRouter } from 'next/navigation';
 // import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';

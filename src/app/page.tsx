@@ -19,11 +19,6 @@ const Page = () => {
       router.push("/create");
     },3000)
   };
-  const handleClick = () => {
-    // Navigating to the /candidate page
-    router.push("/candidate");
-  };
-
   return (
     <div className="flex flex-col justify-center h-screen items-center m-auto gap-6">
       <button onClick={handleApplyClick} className="font-semibold bg-slate-400 p-4 rounded-md hover:bg-slate-200 transition-all duration-300 w-[16rem]">Apply for and See Jobs</button>

@@ -48,6 +48,7 @@ const ApplyModal = ({ job, closeModal }: ApplyModalProps) => {
         }, 1500);
       });
     } catch (error) {
+      console.log(error)
       SetSubmitting(false);
     }
   };
